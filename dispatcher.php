@@ -22,7 +22,6 @@ class Dispatcher
 			$this->controller = new $controllerClass();
 			$this->controller->action = $this->actionName;
 			$this->dispatchMethod($this->actionName, $this->params);
-			//$c->{$this->actionName}();
 		}
 		catch (Exception $e)
 		{
@@ -35,12 +34,10 @@ class Dispatcher
 		if(!file_exists(CONTROLLERS_DIR.$controller.'Controller.php'))
 		{
 			throw new Exception('Создайте файл '.CONTROLLERS_DIR.$controller.'Controller.php ');
-			//return false;
 		}
 		else
 		{
 			require_once((CONTROLLERS_DIR.$controller.'Controller.php'));
-			//return true;
 		}
 	}
 
